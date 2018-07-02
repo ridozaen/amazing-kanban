@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <header-kanban></header-kanban>
+    <router-view></router-view>
+    <footer-kanban></footer-kanban>
   </div>
 </template>
+<script>
+import HeaderKanban from '@/components/HeaderKanban'
+import FooterKanban from '@/components/FooterKanban'
+
+export default {
+  name: 'App',
+  components: {
+    HeaderKanban,
+    FooterKanban
+  } 
+}
+</script>
+
 
 <style>
 #app {
@@ -16,16 +27,46 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
+
+.navbar-nav.navbar-center {
+  font-family: "Pacifico", cursive;
+  position: absolute;
+  left: 50%;
+  /* width: 100%; */
+  transform: translatex(-50%);
+  font-size: 25px;
+  letter-spacing: 0.01em;
+}
+a.dropdown-item{
+    /* color:#007bff; */
+}
+a.dropdown-item:hover{
+    /* background-color:#ffffff; */
+    color: #fff
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.form-group.invalid input {
+  border: 1px solid red;
+  background-color: #f2dede;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.form-group input:focus {
+  border: none;
+  outline: 0;
+  box-shadow: 0px;
 }
+.error {
+  font-size: 11px;
+  color: red;
+}
+
+.alert {
+  font-size: 12px;
+}
+
+.btn:active:focus{
+  outline: none;
+  /* /* border: none; */
+}
+
 </style>
